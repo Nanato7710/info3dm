@@ -32,6 +32,8 @@ if __name__ == "__main__":
     noisy_y = add_noise(data_y, noise_mean=0, noise_std=2.0, random_seed=0)
     df["観測値"] = noisy_y
 
+    df.to_csv("data.tsv", index=False, sep="\t")
+
     plt.title("True Function")
     plt.xlabel("x")
     plt.ylabel("y")
