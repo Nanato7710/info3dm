@@ -34,6 +34,8 @@ if __name__ == "__main__":
 
     df.to_csv("data.tsv", index=False, sep="\t")
 
+    df1 = pd.read_csv("data.tsv", sep="\t")
+
     plt.title("True Function")
     plt.xlabel("x")
     plt.ylabel("y")
