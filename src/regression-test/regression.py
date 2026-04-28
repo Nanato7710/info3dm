@@ -7,7 +7,8 @@ class LinearRegression:
     y = None
 
     def fit(self, x, y):
-        pass
+        temp = np.linalg.inv(np.dot(x.T, x))
+        self.theta = np.dot(np.dot(temp, x.T), y)
 
     def predict(self, x):
         pass
