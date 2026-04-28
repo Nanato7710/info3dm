@@ -4,6 +4,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.metrics import mean_absolute_error
 import matplotlib.pyplot as plt
 import numpy as np
+import pickle
 
 
 df = datasets.load_data("data.tsv")
@@ -34,3 +35,6 @@ plt.show()
 
 mae = mean_absolute_error(y_test, y_pred)
 print("Mean Absolute Error:", mae)
+
+with open("model.pkl", "wb") as f:
+    pickle.dump(model, f, protocol=pickle.HIGHEST_PROTOCOL)
