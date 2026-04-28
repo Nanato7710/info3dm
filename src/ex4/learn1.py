@@ -1,7 +1,7 @@
 import datasets
 from sklearn.linear_model import LinearRegression
 from sklearn.model_selection import train_test_split
-from sklearn.metrics import mean_squared_error, r2_score
+from sklearn.metrics import mean_absolute_error
 import matplotlib.pyplot as plt
 import numpy as np
 
@@ -17,10 +17,6 @@ model.fit(X_train, y_train)
 
 y_pred = model.predict(X_test)
 print("Predicted values:", y_pred)
-mse = mean_squared_error(y_test, y_pred)
-r2 = r2_score(y_test, y_pred)
-print(f"Mean Squared Error: {mse:.2f}")
-print(f"Coefficient of Determination: {r2:.2f}")
 
 true_function_x = np.linspace(-1, 1, 100)
 true_function_y = datasets.true_function(true_function_x)
@@ -35,3 +31,6 @@ plt.ylabel("y")
 plt.grid()
 plt.savefig("ex1.10.png")
 plt.show()
+
+mae = mean_absolute_error(y_test, y_pred)
+print("Mean Absolute Error:", mae)
