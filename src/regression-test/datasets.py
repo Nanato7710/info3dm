@@ -20,3 +20,15 @@ def polynomial2_features(input):
     """
     poly2 = input[:, 1:] ** 2
     return np.c_[input, poly2]
+
+def polynomial3_features(input):
+    """
+    >>> input = np.array([[1, 2], [1, 3], [1, 4]])
+    >>> polynomial3_features(input)
+    array([[ 1,  2,  4,  8],
+           [ 1,  3,  9, 27],
+           [ 1,  4, 16, 64]])
+    """
+    poly2 = input[:, 1:] ** 2
+    poly3 = input[:, 1:] ** 3
+    return np.c_[input, poly2, poly3]
