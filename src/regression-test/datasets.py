@@ -10,10 +10,10 @@ def load_nonlinear_example1():
     Y = np.array([4.0, 0.0, 3.0, 2.0])
     return X, Y
 
-def polynomial_features(input):
+def polynomial2_features(input):
     """
     >>> input = np.array([[1, 2], [1, 3], [1, 4]])
-    >>> polynomial_features(input)
+    >>> polynomial2_features(input)
     array([[ 1,  2,  4],
            [ 1,  3,  9],
            [ 1,  4, 16]])
