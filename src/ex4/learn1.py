@@ -38,3 +38,21 @@ print("Mean Absolute Error:", mae)
 
 with open("model.pkl", "wb") as f:
     pickle.dump(model, f, protocol=pickle.HIGHEST_PROTOCOL)
+
+with open("model.pkl", "rb") as f:
+    loaded_model = pickle.load(f)
+
+loaded_y_pred = loaded_model.predict(X_test)
+print("Predicted values from loaded model:", loaded_y_pred)
+
+loaded_function_y = loaded_model.predict(true_function_x.reshape(-1, 1))
+plt.plot(true_function_x, true_function_y, label="True Function", color="blue")
+plt.plot(true_function_x, loaded_function_y, label="Loaded Model Predicted Function", color="orange")
+plt.scatter(df["観測点"], df["観測値"], color="green", label="Data Points")
+plt.legend()
+plt.title("True Function vs Loaded Model Predicted Function")
+plt.xlabel("x")
+plt.ylabel("y")
+plt.grid()
+plt.savefig("ex1.14.png")
+plt.show()
